@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'barcodes/generate'
   get 'barcode' => 'barcodes#generate'
+  get 'barcodes/checkdigit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

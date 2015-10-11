@@ -12,6 +12,13 @@ class Barcode
     self.defence   = 33333
   end
 
+  def self.copmlete_barcode(barcode)
+    return nil if barcode.blank?
+    barcode_without_checkdigit = barcode[0..11]
+    checkdigit = calculate_check_digit(barcode[0..11])
+    barcode_without_checkdigit + checkdigit
+  end
+
   # Barcode(13): NNNNNNNNNNNNX
   #              3210987654321
   #              1111
