@@ -9,4 +9,11 @@ class LifelogsController < ApplicationController
 
   # def get
   # end
+  #
+  def get
+    @app = Ncmb::DataStore.new("#{ENV["APP_KEY"]}", "#{ENV["CLIENT_KEY"]}", 'Log')
+    response = @app.all()
+    response["results"].last
+    render json: response
+  end
 end
