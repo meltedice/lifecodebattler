@@ -9,9 +9,6 @@ class Barcode
 
   # attr_accessor :dirty_barcode
 
-  # Barcode
-  # 先読みにするには左から3番目を9,10番目を5にする
-
   def initialize(attrs)
     # self.dirty_barcode = "1234567890123"
     self.hitpoint  = attrs[:hitpoint] || 0
@@ -65,6 +62,8 @@ class Barcode
     @barcode ||= build_barcode
   end
 
+  # Barcode
+  # 先読みにするには左から3番目を9,10番目を5にする
   def build_barcode
     code = ""
     code += build_hitpoint_code[0..1] + "9" # 3 digits
