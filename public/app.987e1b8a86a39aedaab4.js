@@ -1775,16 +1775,13 @@ webpackJsonp([1],[
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var debugTools = null;
-	
-	      if (true) {
-	        debugTools = this.renderDevTools();
-	      }
+	      // if (__DEBUG__) {
+	      // debugTools = this.renderDevTools();
+	      // }
 	
 	      return _react2['default'].createElement(
 	        'div',
 	        null,
-	        debugTools,
 	        _react2['default'].createElement(
 	          _reactRedux.Provider,
 	          { store: this.props.store },
@@ -9525,4 +9522,4 @@ webpackJsonp([1],[
 
 /***/ }
 ]);
-//# sourceMappingURL=app.a20d41fa44ee8508aa9f.js.map
+//# sourceMappingURL=app.987e1b8a86a39aedaab4.js.map
