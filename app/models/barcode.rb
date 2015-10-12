@@ -4,7 +4,7 @@ class Barcode
   include ActiveModel::Model
 
   # attr_accessor :barcode
-  attr_accessor :image_url
+  # attr_accessor :image_url
   attr_accessor :hitpoint, :strength, :defence
 
   # attr_accessor :dirty_barcode
@@ -14,7 +14,6 @@ class Barcode
 
   def initialize(attrs)
     # self.dirty_barcode = "1234567890123"
-    self.image_url = "http://example.com/#dummy-image-url"
     self.hitpoint  = attrs[:hitpoint] || 0
     self.strength  = attrs[:strength] || 0
     self.defence   = attrs[:defence]  || 0
@@ -56,6 +55,10 @@ class Barcode
     cdigit = 10 - ((sum_even * 3 + sum_odd) % 10)
     cdigit = cdigit == 10 ? 0 : cdigit
     cdigit.to_s
+  end
+
+  def image_url
+    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
   end
 
   def barcode
