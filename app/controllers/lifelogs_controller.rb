@@ -3,17 +3,20 @@ class LifelogsController < ApplicationController
   # end
 
   def latest
-    @lifelog = Lifelog.new(steps: 555555, distance_m: 6666, usage_time_s: 33333)
-    render json: @lifelog
+    #最新のDBの情報の取得
+    @app = Ncmb::DataStore.new("#{ENV["APP_KEY"]}", "#{ENV["CLIENT_KEY"]}", 'lifecodebattler_log')
+    response = @app.all()
+    result = response["results"].last
+    render json: result
   end
 
   # def get
   # end
   #
   def get
+    #DBの情報を全て取ってくる
     @app = Ncmb::DataStore.new("#{ENV["APP_KEY"]}", "#{ENV["CLIENT_KEY"]}", 'lifecodebattler_log')
     response = @app.all()
-    result = response["results"].last
-    render json: result
+    render json: response
   end
 end
