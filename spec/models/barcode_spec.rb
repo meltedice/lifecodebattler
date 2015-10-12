@@ -15,6 +15,7 @@ RSpec.describe Barcode, type: :model do
       its(:barcode) { should_not be_blank  }
       # its(:barcode) { should eq expected_barcode.gsub(' ', '') }
       its(:barcode) { should match expected_barcode_pattern }
+      its(:image_url) { should match %r{^http://www.no-music-no-life.net} }
     end
 
     context "forward reading codes (先読み)" do
