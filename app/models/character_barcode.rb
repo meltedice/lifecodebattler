@@ -41,7 +41,8 @@ class CharacterBarcode
   end
 
   def build_image_url
-    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
+    code = barcode[0..-2] # Remove checkdigit
+    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{code}&text=true&y=50&nx=2"
   end
 
   private
