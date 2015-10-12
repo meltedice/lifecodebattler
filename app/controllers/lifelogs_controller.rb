@@ -14,7 +14,7 @@ class LifelogsController < ApplicationController
     sum_distance_m = distance_m.inject {|sum, n| sum + n }
     sum_usage_time_s = usage_time_s.inject {|sum, n| sum + n }
 
-    result = {"steps": sum_steps,"distance_m": sum_distance_m ,"usage_time_s": sum_usage_time_s}
+    result = {steps: sum_steps, distance_m: sum_distance_m , usage_time_s: sum_usage_time_s}
     render json: result
   end
 
