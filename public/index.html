@@ -6,8 +6,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style>
+  @media print {
+  body,
+  html {
+    padding: 10px 0; }
+    body h2,
+    html h2 {
+      display: none; }
+
+  .logo {
+    display: none; }
+
+  .cards .well {
+    background-color: #6A6F6B !important;
+    border: 1px solid #6A6F6B;
+    font-size: 14px;
+    height: 59mm;
+    max-height: 59mm;
+    padding: 0;
+    position: relative;
+    width: 86mm; }
+    .cards .well .card-title {
+      height: 14mm;
+      padding: 10px 10px 0; }
+    .cards .well .card-info {
+      height: 14mm;
+      padding: 10px; }
+      .cards .well .card-info .card-character {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0; }
+    .cards .well .card-barcode {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background-color: #ffffff !important;
+      display: inline-block;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 86mm; }
+    .cards .well .trimming {
+      height: 41mm;
+      width: 85.47083mm;
+      overflow: hidden; }
+    .cards .well [class$="-img"] {
+      display: inline-block;
+      width: 100%; } }
+@media screen {
+  body,
+  html {
+    background-color: #282844;
+    background-image: url("../img/background-img.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 0 20px; }
+
+  .container {
+    margin-top: 30px;
+    padding: 0; }
+    .container h2 {
+      color: #CBDC2E;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center; }
+
+  .steps-circle {
+    background-image: url("../img/lifelog-steps-circle.png"); }
+
+  .distance-circle {
+    background-image: url("../img/lifelog-distance-circle.png"); }
+
+  .lifelogs .lifelog-circle {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 50% 0; }
+    .lifelogs .lifelog-circle .lifelog-count {
+      color: #CBDC2E;
+      display: block;
+      font-size: 30px;
+      line-height: 0px;
+      text-align: center; }
+
+  .histories .well {
+    background-color: #6A6F6B;
+    border: 0;
+    font-size: 14px;
+    padding: 0; }
+    .histories .well .card-title {
+      padding: 10px 10px 0; }
+    .histories .well .card-info {
+      padding: 10px; }
+      .histories .well .card-info .card-character {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0; }
+    .histories .well .card-barcode {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background-color: #ffffff;
+      margin: 0; }
+    .histories .well [class$="-img"] {
+      display: inline-block;
+      width: 100%; }
+
+  .cards .well {
+    background-color: #6A6F6B;
+    border: 0;
+    font-size: 14px;
+    padding: 0; }
+    .cards .well .card-title {
+      padding: 10px 10px 0; }
+    .cards .well .card-info {
+      padding: 10px; }
+      .cards .well .card-info .card-character {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0; }
+    .cards .well .card-barcode {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background-color: #ffffff;
+      margin: 0; }
+    .cards .well [class$="-img"] {
+      display: inline-block;
+      width: 100%; }
+
+  #barcodeBtn {
+    background-color: #282844;
+    border: 2px solid #CBDC2E;
+    border-radius: 0;
+    color: #CBDC2E;
+    height: 60px;
+    line-height: 40px;
+    margin: 30px 0; }
+    #barcodeBtn:hover, #barcodeBtn:active {
+      background-color: #CBDC2E;
+      border: 1px solid #282844;
+      color: #282844; }
+
+  #historyBtn {
+    background-color: #282844;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    color: #ffffff;
+    height: 60px;
+    line-height: 40px;
+    margin: 30px 0; }
+    #historyBtn:hover, #historyBtn:active {
+      background-color: #ffffff;
+      border: 1px solid #282844;
+      color: #282844; } }
+
+/*# sourceMappingURL=style.css.map */
+
+  </style>
 </head>
 <body>
   <div id="root"></div>
-<script src="/vendor.a7f1876305cd41818446.js?a7f1876305cd41818446"></script><script src="/app.a7f1876305cd41818446.js?a7f1876305cd41818446"></script></body>
+<script src="/vendor.a20d41fa44ee8508aa9f.js?a20d41fa44ee8508aa9f"></script><script src="/app.a20d41fa44ee8508aa9f.js?a20d41fa44ee8508aa9f"></script></body>
 </html>
