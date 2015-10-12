@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Barcode
+class CharacterBarcode
   include ActiveModel::Model
 
   # attr_accessor :barcode

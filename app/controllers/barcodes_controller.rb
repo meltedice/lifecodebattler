@@ -14,13 +14,13 @@ class BarcodesController < ApplicationController
   end
 
   def generate
-    @barcode = Barcode.new(params)
+    @barcode = CharacterBarcode.new(params)
 
     render json: @barcode
   end
 
   def checkdigit
-    @code = Barcode.copmlete_barcode(params[:barcode])
+    @code = CharacterBarcode.copmlete_barcode(params[:barcode])
 
     render json: { barcode: @code }
   end
