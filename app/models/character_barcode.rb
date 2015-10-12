@@ -5,6 +5,7 @@ class CharacterBarcode
   include Barcode
 
   attr_accessor :hitpoint, :strength, :defence
+  # attr_accessor :race # 0:machine 1:animal 2:fish 3:bird 4:human
 
   def initialize(attrs)
     self.hitpoint  = attrs[:hitpoint] || 0
@@ -27,9 +28,13 @@ class CharacterBarcode
     code += build_job_code      # 1 digit
     code += "5"                 # 1 digit (Fixed)
     code += build_ability_code  # 2 digits
-    code += calculate_check_digit(code)
+    code += calculate_check_digit(code, digits: 13)
 
     code
+  end
+
+  def image_url
+    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
   end
 
   private

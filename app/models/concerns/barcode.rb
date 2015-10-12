@@ -51,13 +51,10 @@ module Barcode
     @check_digit ||= calculate_check_digit
   end
 
-  def image_url
-    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
-  end
-
   private
 
-  def calculate_check_digit(code)
-    self.class.calculate_check_digit(code[0..11])
+  def calculate_check_digit(code, options={})
+    digits = options[:digits] || 13
+    self.class.calculate_check_digit(code[0..(digits-2)])
   end
 end
