@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # get 'lifelogs/index'
-  get 'api/lifelogs/latest'      => 'lifelogs#latest' 
-  get 'api/lifelogs/'            => 'lifelogs#get'
+  get 'api/:user_id/lifelogs/latest'       => 'lifelogs#latest' 
+  get 'api/:user_id/lifelogs/'             => 'lifelogs#get'
 
-  get 'api/barcodes/generate'    => 'barcodes#generate'
-  get 'api/barcode'              => 'barcodes#generate'
-  get 'api/barcodes/checkdigit'  => 'barcodes#checkdigit'
+  get 'api/:user_id/barcodes'              => 'barcodes#generate'
+  get 'api/:user_id/barcodes/:id'          => 'barcodes#show'
+  get 'api/:user_id/barcodes/today'        => 'barcodes#today'
+  get 'api/:user_id/barcodes/checkdigit'   => 'barcodes#checkdigit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
