@@ -1,4 +1,6 @@
 class BarcodesController < ApplicationController
+  before_action :set_attrs, only: [:today, :show]
+
   def today
     @character_barcode  = CharacterBarcode.new(@attrs)
     barcodes = [@character_barcode]
