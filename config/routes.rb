@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   # get 'lifelogs/index'
-  get 'lifelogs/latest'
-  # get 'lifelogs/get'
+  get 'api/lifelogs/latest'      => 'lifelogs#latest' 
+  get 'api/lifelogs/'            => 'lifelogs#get'
 
-  get 'barcodes/generate'
-  get 'barcode' => 'barcodes#generate'
-  get 'barcodes/checkdigit'
+  get 'api/barcodes/generate'    => 'barcodes#generate'
+  get 'api/barcode'              => 'barcodes#generate'
+  get 'api/barcodes/checkdigit'  => 'barcodes#checkdigit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
