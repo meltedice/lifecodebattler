@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'lifelogs/index'
   get 'lifelogs/latest'
-   get 'lifelogs/get'
+  get 'lifelogs/get'
 
   get 'barcodes/generate'
   get 'barcode' => 'barcodes#generate'
