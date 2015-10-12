@@ -1,10 +1,17 @@
 class BarcodesController < ApplicationController
   def today
-    @barcode  = Barcode.new(params)
-    ary = []
-    ary << @barcode
-    ary << @barcode
-    render json: ary
+    steps = params[:steps]
+    distance_m = params[:distance_m]
+    usage_time_s = params[:usage_time_s]
+
+    attrs = {
+      hitpoint: 12300,
+      strength: 4500,
+      defence:  6700,
+    }
+    @charactor_barcode  = CharacterBarcode.new(attrs)
+    barcodes = [@charactor_barcode]
+    render json: barcodes
   end
 
   def show

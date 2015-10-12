@@ -5,12 +5,19 @@ class CharacterBarcode
   include Barcode
 
   attr_accessor :hitpoint, :strength, :defence
-  # attr_accessor :race # 0:machine 1:animal 2:fish 3:bird 4:human
+  attr_accessor :race # 0:machine 1:animal 2:fish 3:bird 4:human
+  attr_accessor :job  # 0-6:warrior 7-9:wizard
+  attr_accessor :image_url
+  attr_accessor :level
 
   def initialize(attrs)
     self.hitpoint  = attrs[:hitpoint] || 0
     self.strength  = attrs[:strength] || 0
     self.defence   = attrs[:defence]  || 0
+    self.race      = attrs[:race]     || 'human'   # 4
+    self.job       = attrs[:job]      || 'warrior' # 0
+    self.image_url = build_image_url
+    self.level     = 99
   end
 
   def barcode
@@ -33,7 +40,7 @@ class CharacterBarcode
     code
   end
 
-  def image_url
+  def build_image_url
     "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
   end
 
