@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe Barcode, type: :model do
+RSpec.describe CharacterBarcode, type: :model do
 
   context "new" do
     RSpec.shared_examples "barcode generator" do |expected_barcode, attrs|
-      subject { Barcode.new(attrs) }
+      subject { CharacterBarcode.new(attrs) }
       let(:expected_barcode_pattern) do
         pattern = expected_barcode.gsub(' ', '')
         Regexp.new("^#{pattern[0..6]}")
@@ -34,7 +34,7 @@ RSpec.describe Barcode, type: :model do
     RSpec.shared_examples "correct check digit" do |expected_checkdigit, barcode|
       barcode = barcode.gsub(' ', '')
       it "calculates check digit" do
-        expect(Barcode.calculate_check_digit(barcode)).to eq expected_checkdigit
+        expect(CharacterBarcode.calculate_check_digit(barcode)).to eq expected_checkdigit
       end
     end
 

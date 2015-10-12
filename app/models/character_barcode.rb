@@ -1,70 +1,24 @@
 # coding: utf-8
 
-class Barcode
+class CharacterBarcode
   include ActiveModel::Model
+  include Barcode
 
-  # attr_accessor :barcode
-  # attr_accessor :image_url
   attr_accessor :hitpoint, :strength, :defence
-
-  # attr_accessor :dirty_barcode
-
-  # Barcode
-  # 先読みにするには左から3番目を9,10番目を5にする
+  # attr_accessor :race # 0:machine 1:animal 2:fish 3:bird 4:human
 
   def initialize(attrs)
-    # self.dirty_barcode = "1234567890123"
     self.hitpoint  = attrs[:hitpoint] || 0
     self.strength  = attrs[:strength] || 0
     self.defence   = attrs[:defence]  || 0
-  end
-
-  def self.copmlete_barcode(barcode)
-    return nil if barcode.blank?
-    barcode_without_checkdigit = barcode[0..11]
-    checkdigit = calculate_check_digit(barcode[0..11])
-    barcode_without_checkdigit + checkdigit
-  end
-
-  # Barcode(13): NNNNNNNNNNNNX
-  #              3210987654321
-  #              1111
-  # N: Numbers
-  # X: Check digit
-  #
-  # Check digit:
-  #   * Sum even place numbers then times 3
-  #   * Sum odd place numbers
-  #   * Sum both even and odd sums
-  #   * Get one's place number of the sum
-  #   * 10 minus the above
-  #   * It's checkdigit. If it is 10, check digit is 0
-  #
-  def self.calculate_check_digit(barcode_without_checkdigit)
-    return nil if barcode_without_checkdigit.blank?
-
-    sum_odd, sum_even = 0, 0
-    (1..12).each do |i|
-      digit = barcode_without_checkdigit[-i].to_i
-      if (i+1).odd?
-        sum_odd += digit
-      else
-        sum_even += digit
-      end
-    end
-    cdigit = 10 - ((sum_even * 3 + sum_odd) % 10)
-    cdigit = cdigit == 10 ? 0 : cdigit
-    cdigit.to_s
-  end
-
-  def image_url
-    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
   end
 
   def barcode
     @barcode ||= build_barcode
   end
 
+  # Barcode
+  # 先読みにするには左から3番目を9,10番目を5にする
   def build_barcode
     code = ""
     code += build_hitpoint_code[0..1] + "9" # 3 digits
@@ -74,13 +28,13 @@ class Barcode
     code += build_job_code      # 1 digit
     code += "5"                 # 1 digit (Fixed)
     code += build_ability_code  # 2 digits
-    code += calculate_check_digit(code)
+    code += calculate_check_digit(code, digits: 13)
 
     code
   end
 
-  def check_digit
-    @check_digit ||= calculate_check_digit
+  def image_url
+    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
   end
 
   private
@@ -144,9 +98,5 @@ class Barcode
   #
   def build_ability_code
     "00"
-  end
-
-  def calculate_check_digit(code)
-    self.class.calculate_check_digit(code[0..11])
   end
 end
