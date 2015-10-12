@@ -12,10 +12,6 @@ class CharacterBarcode
     self.defence   = attrs[:defence]  || 0
   end
 
-  def image_url
-    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
-  end
-
   def barcode
     @barcode ||= build_barcode
   end

@@ -51,6 +51,10 @@ module Barcode
     @check_digit ||= calculate_check_digit
   end
 
+  def image_url
+    "http://www.no-music-no-life.net/~tsukaban/mkjan/mkjan.php?i=#{barcode}&text=true&y=50&nx=2"
+  end
+
   private
 
   def calculate_check_digit(code)
